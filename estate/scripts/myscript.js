@@ -1,10 +1,46 @@
-$(document).ready(function(){
-	var change1=setTimeout(first_phase,"8000");
-	var change2=setTimeout(second_phase,"13000");
-	var change3=setTimeout(third_phase,"16000");
+function zero_Src(){
+		//console.log("inside");
+//		$("#src-zero").css("animation","animation-init 0.5s forwards");		
+		// var change0=setTimeout(zeroth_phase,"500");
+		// var change1=setTimeout(first_phase,"8000");
+		// var change2=setTimeout(second_phase,"13000");
+		// var change3=setTimeout(third_phase,"16000");
+}
+// $(document).ready(function(){
+// 	var change1=setTimeout(first_phase,"8000");
+// 	var change2=setTimeout(second_phase,"13000");
+// 	var change3=setTimeout(third_phase,"16000");
+// });
+$(".my-hero-jumbotron").css({ height: $(window).height() + "px" });
+
+$(window).on("resize", function() {
+  $("..my-hero-jumbotron").css({ height: $(window).height() + "px" });
 });
+
+
+function my_buy_toggle()
+{
+	if($("#what").text() == "Buy" )
+	{
+		$("#what").text("Rent");	
+	}
+	else
+	{
+		$("#what").text("Buy");		
+	}
+}
+
+function zeroth_phase()
+{
+	$("#src-1").attr({"class":"col-12 animation1 overflow-hidden"});
+	$("#phase-0-lap").css("class","mt-5 ml-sm-4 ml-md-5 animation1");
+	$("#phase-0-cursor").css("class","animation1-cursor");
+}
+
 function first_phase()
 {
+
+
 	$("#src-1").attr({"class":"col-12 animation1 overflow-hidden collapse"});
 	$("#src-2").attr({"class":"col-12 animation2 overflow-hidden"});
 	$("#date-1").css("animation","animation-2-date 2s forwards");
