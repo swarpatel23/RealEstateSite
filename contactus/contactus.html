@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <title>contact us</title>
 </head>
 
-<body class="" >
+<body class="" style="-webkit-font-smoothing: antialiased;color: #222;line-height: 27px;">
   <div class="cont">
     <div id="content-row">
       <div class="row-container">
@@ -17,6 +19,8 @@
 
             <div id="component" class="span12" style="margin: 20px;">
               <div class="page-category page-category__default"></div>
+              <h2 style="text-align: center;"><span style="background-image: -webkit-linear-gradient(bottom,#ffe7e2 50%,transparent 50%);font-family: Publico,Georgia,serif!important;font-weight: 525;color: #222;text-align: center;font-size: 40px;">Contact Us</span></h2>
+              <br>
                 <table border="0" width="50%">
                   <tbody>
                     <tr>
@@ -54,5 +58,14 @@
     </div>
   </div>
 </body>
+<script>
+$("h3").hover(function(){
+  $(this).css("color", "#0e962b");
+  $(this).css("text-decoration", "underline");
 
+  }, function(){
+  $(this).css("color", "black");
+  $(this).css("text-decoration", "none");
+});
+</script>
 </html>

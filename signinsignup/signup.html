@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <link type="text/css" rel="stylesheet" href="signup_style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body class="sbody">
+    <div class="tab-content">
+    <div class="signup">
+        <form method="POST" action="">
+            <h2 class="h2header">Sign Up</h2>
+            <input type="text" name="username" placeholder="Username" spellcheck="false" required>
+            <input type="email" placeholder="E-mail" name="email" spellcheck="false" autocomplete="off" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input type="tel" placeholder="Contact Number" name="Contactnumber" required>
+            <input type="text" placeholder="Address" name="Address" spellcheck="false" required>
+            <input type="checkbox" value="check" required><span id="privacytext">I agree to the Privacy
+                Policy</span></input>
+            <br>
+            <input type="submit" value="Register" required>
+
+
+        </form>
+        <p class="link">Already have a account? <a href="#signin">Sign in</a>"</p>
+        <p class="copyright">&copy; copyright 2019</p>
+    </div>
+    <div class="signin">
+        <form method="POST" action="">
+            <h2 class="h2header">Sign In</h2>
+            <input type="email" placeholder="E-mail" name="email" autocomplete="off" spellcheck="false" required>
+            <input type="password" placeholder="Password" name="password" autocomplete="off" required>
+            <input type="submit" value="Login">
+
+        </form>
+        <p class="link">Creata a account? <a href="#signup">Sign Up</a>"</p>
+        <p class="copyright">&copy; copyright 2019</p>
+    </div>
+    </div>  
+    <script>
+        $('.link a').on('click', function (e) {
+
+            e.preventDefault();
+
+
+
+            target = $(this).attr('href');
+
+            
+
+            //$(target).show(1000);
+
+            console.log(target);
+            if(target=="#signin")
+            {
+
+                $('.signup').hide(100);
+                $('.signin').fadeIn(700);
+                document.title="signin";
+            }
+            else
+            {
+                $('.signin').hide();
+                $('.signup').fadeIn(700);
+                document.title="signup";
+
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
