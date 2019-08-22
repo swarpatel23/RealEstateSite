@@ -35,7 +35,7 @@
         <div id='map' style='max-width: 1100px; height: 300px;'></div>
         <script>
             var lat, long;
-            mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhcjIzIiwiYSI6ImNqejlhbmt1YzAxdXAzbm1yZzMzbHFmNHMifQ.xPyQpPklaSXYm5pFCO85Hg';
+            mapboxgl.accessToken = '';
             var map;
             map = new mapboxgl.Map({
                 container: 'map',
@@ -69,6 +69,10 @@
                     document.getElementById("longitude").placeholder = "select your place location in map";
 
                 });
+                
+                
+                
+                
 
                 map.on('click', function (e) {
                     document.getElementById("latitude").value = e.lngLat.lat;
@@ -126,6 +130,9 @@
         </script>
     </div>
 
+    
+    
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light container">
 
         <div class="collapse navbar-collapse" id="navbarText">
@@ -144,6 +151,9 @@
         </div>
     </nav>
     <script>
+        
+        
+        
         $(document).ready(function () {
             // Add smooth scrolling to all links
             $("a").on('click', function (event) {
