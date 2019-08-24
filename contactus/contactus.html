@@ -1,71 +1,98 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <title>contact us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Map-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
-<body class="" style="-webkit-font-smoothing: antialiased;color: #222;line-height: 27px;">
-  <div class="cont">
-    <div id="content-row">
-      <div class="row-container">
-        <div class="container">
-          <div class="content-inner row view-article">
-
-            <div id="component" class="span12" style="margin: 20px;">
-              <div class="page-category page-category__default"></div>
-              <h2 style="text-align: center;"><span style="background-image: -webkit-linear-gradient(bottom,#ffe7e2 50%,transparent 50%);font-family: Publico,Georgia,serif!important;font-weight: 525;color: #222;text-align: center;font-size: 40px;">Contact Us</span></h2>
-              <br>
-                <table border="0" width="50%">
-                  <tbody>
-                    <tr>
-                      <td align="left">
-                        <h3>Phone:</h3>
-                        <p>Customers: 9174312345</p>
-                        <p>&nbsp;</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <h3>Email:</h3>
-                        <p>Customer Service:&nbsp;<a href="mailto:p&s@gmail.com">p&s@gmail.com</a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="left">
-                        <h3>Payment / Correspondence Address:</h3>
-                        <p><a href="https://p&s@gmail.com">p&s@gmail.com</a></p>
-                        <p>2400 E Devon Park&nbsp;<br />Mumbai<br />India</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p>&nbsp;</p>
-                <p>Thank you for your interest in P&S. If you have questions, comments, suggestions or you need
-                  some assistance please call us at 1334-211-111 to speak with one of our friendly customer service
-                  representatives.&nbsp;&nbsp;<br /><br />If you would prefer to email us, please contact us at:
-                  &nbsp;<a href="mailto:p&s@gmail.com"></a>p&s@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<body>
+    <div class="contact-clean">
+        <form method="post" action="#">
+            <h2 class="text-center">Contact us</h2>
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
+            <div class="form-group"><input class="form-control is-invalid" type="email" name="email" placeholder="Email"><small class="form-text text-danger">Please enter a correct email address.</small></div>
+            <div class="form-group"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea></div>
+            <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+        </form>
     </div>
-  </div>
-</body>
-<script>
-$("h3").hover(function(){
-  $(this).css("color", "#0e962b");
-  $(this).css("text-decoration", "underline");
+    <div class="map-clean">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Location </h2>
+                <p class="text-center">50-B,Devang Park,Near Santram Mandir<br>Nadiad-387002<br><br>Contact No : +91 1234567891<br><br>Email : <a href="mailto:p&s@realtor.com">p&s@realtor.com</a></p>
+            </div>
+        </div>
+         <div id='map' style="max-width: auto; height: 300px;"></div>
+         <script>
+            var lat, long;
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhcjIzIiwiYSI6ImNqejlhbmt1YzAxdXAzbm1yZzMzbHFmNHMifQ.xPyQpPklaSXYm5pFCO85Hg';
+            var map;
+            map = new mapboxgl.Map({
+                container: 'map',
+                center: [72.863365,22.691586], // starting position
+                zoom: 16, // starting zoom
+                style: 'mapbox://styles/mapbox/satellite-streets-v11',
 
-  }, function(){
-  $(this).css("color", "black");
-  $(this).css("text-decoration", "none");
-});
-</script>
+            });
+            
+                
+                map.on("load", setmarker);
+                
+                function setmarker() {
+                    //console.log("hi");
+                    var mapLayer = map.getLayer('markers');
+
+                   
+                    /* Image: An image is loaded and added to the map. */
+                    map.loadImage("marker.png", function (error, image) {
+                        if (error) throw error;
+                        map.addImage("custom-marker", image);
+                        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+                        map.addLayer({
+                            id: "markers",
+                            type: "symbol",
+                            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                            source: {
+                                type: "geojson",
+                                data: {
+                                    type: 'FeatureCollection',
+                                    features: [
+                                        {
+                                            type: 'Feature',
+                                            properties: {},
+                                            geometry: {
+                                                type: "Point",
+                                                coordinates: [72.863365,22.691586]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            layout: {
+                                "icon-image": "custom-marker",
+                            }
+                        });
+
+                    });
+
+                }
+            
+
+
+
+
+        </script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
