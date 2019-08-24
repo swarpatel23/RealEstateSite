@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="row">
+    <div class="col-md-6">
+            <img src="deal.png" class="mx-auto d-block img-fluid" alt="handshake">
+            <h3 class="text-center m-5">Steps:</h3>
+            <p class="text-center mx-auto"></p>
+                    <ol style="list-style: decimal inside;">
+                            <li>Select any two date for your appointment.</li><br>
+                            <li>Write your purchase or rent price.</li><br>
+                            <li>Owner of the house select one of date.</li><br>
+                            <li>We will let you know about that dates via mail.</li><br>
+                            <li>If you don't get mail means owner is not free on both of dates.</li>
+                    </ol>
+            </p>
+    </div>
+    <div class="col-md-6">
+    <div class="contact-clean">
+        <form method="post">
+            <h2 class="text-center">Get Appointment</h2>
+            <div class="form-group"><label for="d1" class="mb-0">Date1:</label><input class="form-control" id="d1" type="date" name="date1"></div>
+            <div class="form-group"><label for="d2" class="mb-0">Date2:</label><input class="form-control" id="d2" type="date" name="date2"></div>
+            <div class="form-group"><label for="currency-field" class="mb-0">Your Purchase/Rent Price: </label>
+                <input type="text" class="form-control" name="currency-field" id="currency-field" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="&#x20b9 1,000,000.00"></div>
+            <div class="form-group"><label for="msg" class="mb-0">What you like in my place?</label><textarea id="msg" class="form-control" name="message" placeholder="Write Something...." rows="14"></textarea></div>
+            <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+        </form>
+    </div>
+
+    
+</div>
+
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="currancy.js"></script>
+
+</body>
+
+</html>
