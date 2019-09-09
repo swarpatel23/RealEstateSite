@@ -14,7 +14,7 @@ function zero_Src(){
 $(".my-hero-jumbotron").css({ height: $(window).height() + "px" });
 
 $(window).on("resize", function() {
-  $("..my-hero-jumbotron").css({ height: $(window).height() + "px" });
+  $(".my-hero-jumbotron").css({ height: $(window).resize(function() {  + "px" })});
 });
 
 
@@ -29,6 +29,10 @@ function my_buy_toggle()
 		$("#what").text("Buy");		
 	}
 }
+
+
+
+
 
 function zeroth_phase()
 {
