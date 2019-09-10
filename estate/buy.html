@@ -30,6 +30,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylesheet/Contact-Form-Clean.css">
+	<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<style>
 		body {
 			margin: 0;
@@ -43,7 +46,7 @@
 		<nav class="navbar navbar-expand-xl navbar-light bg-trasparen my-navbar pt-md-1 pr-md-3 pb-md-1 pl-md-5">
 			<a class="navbar-brand" href="#">Logo</a>
 			<li class="active d-block d-lg-none " style="font-size: 0.7em">
-				<span class="nav-link under-line-active" onclick="underline(this)" id="display_houses" >
+				<span class="nav-link under-line-active" onclick="underline(this)" id="display_houses">
 					House
 				</span>
 			</li>
@@ -61,7 +64,7 @@
 
 					<li class="nav-item  pr-md-2 pl-xl-5 ">
 						<a class="nav-link" href="index.html">Home
-							
+
 						</a>
 					</li>
 					<li class="nav-item active pr-md-2 pl-xl-2">
@@ -149,17 +152,13 @@
 			</div>
 			<div id="house_detail" class="col-xs-12 col-lg-6"
 				style="display:none; height:90vh;overflow-x:hidden;overflow-y: auto;background-color: white;">
-
 				<div class="row text-center">
-					<i class="fas fa-times-circle fa-3x" onclick="close_details()"
-						style="position: sticky; top:15px;left:15px;z-index: 1;background-color:white;color: black;clip-path:circle(48% at 24px 24px);"></i>
-					<div class="col-12"
-						style="width:100vw; height:56vh;overflow: hidden;  transform: translateY(-68px);">
-						<!-- <img src="image/inviison/h1.jpg" class="w-100"alt="h1" style="transform: translateY(-1vh);"> -->
+					<i class="fas fa-times-circle fa-3x my-close-btn-house-detail" onclick="close_details()"></i>
+					<div class="col-12 house-thumbnail">						
 						<img src="image/inviison/h2.jpg" class="img-fluid" alt="h1" data-toggle="modal"
-							data-target="#myModal" onclick="" />
+							data-target="#myModal" onclick="" id="main-house-thumbnail"/>
 						<div data-toggle="modal" data-target="#myModal"
-							style="position: absolute; bottom:0px;right:16px;z-index: 1;" id="more">
+							class="my-more" id="more">
 							More
 						</div>
 					</div>
@@ -169,33 +168,37 @@
 						<small>Expected Price</small>
 						<div class="row">
 							<div class="col-lg-6 col-xs-12">
-								<h3>$75,000,000
+								<h3 id="house_price">$75,000,000
 									<small>/mo</small>
 								</h3>
 							</div>
-							<div class="col-lg-6 col-xs-12">
-								<p>
+							<div class="col-lg-4 col-xs-12">
+								<p id="house_address">
 									B-2039, Lorem, Epsum
 								</p>
+							</div>
+							<div class="col-lg-2 col-xs-12">
+								<small>Year build</small>
+								<p>1999</p>
 							</div>
 							<div class="col-12">
 								<div class="row text-center pt-5 pb-5">
 									<div class="col-4">
-										<h4 class="my-hepta">5</h4>
+										<h4 class="my-hepta" id="no_of_bed">5</h4>
 										<p>
 											<i class="fa fa-bed fa-3x" aria-hidden="true" data-toggle="tooltip"
 												title="Beds"></i>
 										</p>
 									</div>
 									<div class="col-4">
-										<h4 class="my-hepta">5</h4>
+										<h4 class="my-hepta" id="no_of_bathroom">5</h4>
 										<p>
 											<i class="fa fa-bath fa-3x" aria-hidden="true" data-toggle="tooltip"
 												title="Bathrooms	"></i>
 										</p>
 									</div>
 									<div class="col-4">
-										<h4 class="my-hepta">1500
+										<h4 class="my-hepta" id="plot_size">1500
 											<small>ft</small>
 										</h4>
 										<p>
@@ -208,7 +211,7 @@
 							<div class="col-12 mt-sm-5 mt-md-5 text-center">
 								<button id="apply" class="w-50" onclick="appointment_click(this)">Get
 									Appointment</button>
-								<i class="far fa-heart fa-3x float-right pr-0 pr-sm-5" style="color:#ff3366 ;"
+								<i class="far fa-heart fa-3x float-right pr-0 pr-sm-5 pink-color" 
 									data-toggle="tooltip" title="Like" onclick="heart_clicked();" id="heart"></i>
 							</div>
 						</div>
@@ -216,18 +219,18 @@
 					<div class="col-12 mt-4">
 						<h1>Overview</h1>
 						<hr>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore beatae dolore, iusto magnam
+						<p id="overview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore beatae dolore, iusto magnam
 							praesentium pariatur
 							consectetur doloribus vero aperiam reiciendis ullam repudiandae, molestias dignissimos ad
 							amet rerum, labore adipisci
 							distinctio.</p>
 						<div class="row text-center  mt-5 mb-4">
 							<div class="col-6">
-								<h2 class="my-hepta">123</h2>
+								<h2 class="my-hepta" id="total_view">123</h2>
 								<p class="text-muted">Views</p>
 							</div>
 							<div class="col-6">
-								<h2 class="my-hepta">1 </h2>
+								<h2 class="my-hepta" id="days_on_web">1 </h2>
 								<p class="text-muted">Day(s) since on website</p>
 							</div>
 						</div>
@@ -236,52 +239,18 @@
 						<h1>Ammenities</h1>
 						<hr>
 						<h6>General Fetures</h6>
-						<ul>
+						<ul id="g_feture">
 
 							<li>Balcony or deck</li>
 							<li>Furnished</li>
 							<li>Hardwood floor</li>
 						</ul>
 						<h6>Building Fetures</h6>
-						<div class="grid-container">
-							<div class="grid-item">
-								<i class="fas fa-wind fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Garage"></i>
-								<br><small>Air Conditioning </small>
-							</div>
-							<div class="grid-item">
-								<i class="fa fa-car fa-2x" aria-hidden="true" data-toggle="tooltip" title="Garage"></i>
-								<br><small>Parking </small>
-							</div>
-							<div class="grid-item">
-								<i class="fas fa-swimmer fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Swimming"></i>
-								<br> <small>Swimming Pool</small>
-							</div>
-							<div class="grid-item">
-								<i class="fa fa-paw fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Pets Allowed"></i>
-								<br> <small>Pets Allowed</small>
-
-							</div>
-							<div class="grid-item">
-								<i class="fas fa-dumbbell fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Gym"></i>
-								<br> <small>Gym</small>
-							</div>
-							<div class="grid-item">
-								<i class="fas fa-arrows-alt-v fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Elevator"></i>
-								<br> <small>Elevator</small>
-							</div>
-							<div class="grid-item">
-								<i class="fas fa-chess fa-2x" aria-hidden="true" data-toggle="tooltip"
-									title="Indoor game"></i>
-								<br> <small>Indoor game</small>
-							</div>
+						<div class="grid-container" id="b_feture">
+							
 						</div>
 					</div>
-				</div>
+				</div>				
 			</div>
 			<div id="appointment_detail" class="col-xs-12 col-lg-6"
 				style="display:none; height:90vh;overflow-x:hidden;overflow-y: auto;background-color: #f1f7fc;">
@@ -307,18 +276,20 @@
 				</div>
 			</div>
 			<div id="field" class="col-xs-12 col-lg-6 " style="height:90vh;overflow-x:hidden;overflow-y: auto;">
-
 				<nav class="navbar navbar-white bg-white row" style="position: sticky;
 				top: -0.1vh;z-index: 1;">
 					<div class="row col-12 pt-2 pb-1 text-center">
-						<div class="col-4 my-roboto under-line-active" style="font-size:1.1em;" onclick="underline_price(this)" id="price-high-low">
+						<div class="col-4 my-roboto under-line-active" style="font-size:1.1em;"
+							onclick="underline_price(this)" id="price-high-low">
 							Price -- high to low
 
 						</div>
-						<div class="col-4 my-roboto under-line" style="font-size:1.1em;" onclick="underline_price(this)" id="price-low-high">
+						<div class="col-4 my-roboto under-line" style="font-size:1.1em;" onclick="underline_price(this)"
+							id="price-low-high">
 							Price -- low to high
 						</div>
-						<div class="col-4 my-roboto under-line" style="font-size:1.1em;" onclick="underline_price(this)" id="newest-first">
+						<div class="col-4 my-roboto under-line" style="font-size:1.1em;" onclick="underline_price(this)"
+							id="newest-first">
 							Newest First
 						</div>
 					</div>
@@ -339,9 +310,9 @@
 								</div>																
 							</li>					 -->
 						<!-- </ul> -->
-						<div class="accordion" id="accordionExample">
+						<div class="accordion mt-5 mb-5 pb-1" id="accordionExample">
 							<div class="card">
-								<div class="card-header" id="headingOne">
+								<div class="card-header my-shodows" id="headingOne">
 									<h2 class="mb-0">
 										<button class="btn btn-link" type="button" data-toggle="collapse"
 											data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -352,15 +323,21 @@
 
 								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
 									data-parent="#accordionExample">
-									<div class="card-body">
-
-
-
+									<div class="card-body my-shadow-body">
+										<div class="row mt-4 mb-3 ml-3">
+											<div class="col-3">
+												<i class="fa fa-bath fa-2x" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="bathrooms"></i>
+											</div>
+											<div class="col-8 mr-1">
+												<div id="slider-bath"></div>
+											</div>
+										</div>
+										
 									</div>
 								</div>
 							</div>
 							<div class="card">
-								<div class="card-header" id="headingTwo">
+								<div class="card-header my-shodows" id="headingTwo">
 									<h2 class="mb-0">
 										<button class="btn btn-link collapsed" type="button" data-toggle="collapse"
 											data-target="#collapseTwo" aria-expanded="false"
@@ -371,13 +348,20 @@
 								</div>
 								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 									data-parent="#accordionExample">
-									<div class="card-body">
-
+									<div class="card-body my-shadow-body">
+										<div class="row mt-4 mb-3 ml-3">
+											<div class="col-3">
+												<i class="fa fa-bed fa-2x" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="Beds"></i>
+											</div>
+											<div class="col-8 mr-1">
+												<div id="slider-bed"></div>
+											</div>
+										</div>										
 									</div>
 								</div>
 							</div>
 							<div class="card">
-								<div class="card-header" id="headingThree">
+								<div class="card-header my-shodows" id="headingThree">
 									<h2 class="mb-0">
 										<button class="btn btn-link collapsed" type="button" data-toggle="collapse"
 											data-target="#collapseThree" aria-expanded="false"
@@ -388,142 +372,23 @@
 								</div>
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
 									data-parent="#accordionExample">
-									<div class="card-body">
-
+									<div class="card-body my-shadow-body">
+										<div class="row mt-4 mb-5 ml-3">
+											<div class="col-3">
+												<i class="far fa-square fa-2x" aria-hidden="true" data-toggle="tooltip" title="" data-original-title="plot size"></i>
+											</div>
+											<div class="col-8 mr-1">
+												<div id="slider-plot"></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</nav>
-				<div class="row " style="padding-right:0px">
-
-					<div id="h1" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h1.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h2" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h2.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h3" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h3.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h4" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h4.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h5" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h2.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h6" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h1.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="h7" onclick="house_click(this)" class="card col-xs-12 col-xl-6">
-						<img class="card-img-top" src="image/inviison/h1.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<h5>$75,00,000</h5>
-								</div>
-								<div class="col-7">
-									<div class="row">
-										<div class="col-12">
-											<h6>5 Bds|2 Ba| 25000ft</h6>
-											<small>B-2039 Lorem, ipsum dolor sitd</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="row " style="padding-right:0px" id="list_of_house">
+					
 				</div>
 			</div>
 		</div>
@@ -531,17 +396,17 @@
 	</div>
 	</div>
 	<script>
-		mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhcjIzIiwiYSI6ImNqejlhbmt1YzAxdXAzbm1yZzMzbHFmNHMifQ.xPyQpPklaSXYm5pFCO85Hg';
+		mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhcjIzIiwiYSI6ImNqejlhbmt1YzAxdXAzbm1yZzMzbHFmNHMifQ.xPyQpPklaSXYm5pFCO85Hx';
 		var map = new mapboxgl.Map({
 			container: 'map', // container id
 			style: 'mapbox://styles/mapbox/satellite-streets-v11',
-			center: [-74.50, 40], // starting position
+			center: [-80.50, 50], // starting position
 			zoom: 9 // starting zoom
 
 
 		});
 
-		
+
 
 
 
@@ -556,7 +421,7 @@
 //mapbox://styles/mapbox/streets-v11
 	</script>
 	<script>
-		
+
 		$('[data-toggle="tooltip"]').tooltip();
 		function heart_clicked() {
 			if ($("#heart").hasClass("far")) {
@@ -574,9 +439,95 @@
 			$("#appointment_detail").css({ "display": "none" });
 			$("#house_detail").css({ "display": "" });
 		}
-		function house_click(element) {
-			console.log("clicked");
+		function house_click(element) {			
 			console.log(element.id);
+			var hid = element.id;
+			var shouse = house_list.find(function(house){			
+				return house["hid"].toString()==hid.toString();
+			});
+			console.log(shouse);
+			map.flyTo({
+				center: [
+					shouse["lat"],
+					shouse["long"]
+				]
+			});
+			$("#main-house-thumbnail").attr("src",shouse["photos"][0]);
+
+			var inner_carosal_active = '<div class="carousel-item active">'
+								+'<img src="'+shouse["photos"][0]+'"'
+								+'class="img-fluid ">'
+								+'</div>';
+			var inner_carosal = " " +inner_carosal_active;
+			for(let i=1;i<shouse["photos"].length;i++)
+			{
+				inner_carosal += '<div class="carousel-item">'
+								+'<img src="'+shouse["photos"][i]+'"'
+								+'class="img-fluid ">'
+								+'</div>';
+			}
+
+			var g_feture = "";
+			for (let index = 0; index < shouse["g_amenities_list"].length; index++) {
+				const element = shouse["g_amenities_list"][index];
+				console.log(element);
+				g_feture += "<li>"+element+"</li>";
+				
+			}
+
+
+
+			var b_feture = "";
+			var ac = '<div class="grid-item"><i class="fas fa-wind fa-2x" aria-hidden="true" data-toggle="tooltip" title="AC"></i><br><small>Air Conditioning </small></div>';
+			var garage = '<div class="grid-item"><i class="fa fa-car fa-2x" aria-hidden="true" data-toggle="tooltip" title="Garage"></i><br><small>Garage </small></div>';										
+			var swimming = '<div class="grid-item"><i class="fas fa-swimmer fa-2x" aria-hidden="true" data-toggle="tooltip" title="Swimming"></i><br> <small>Swimming Pool</small></div>';
+			var pet = '<div class="grid-item"><i class="fa fa-paw fa-2x" aria-hidden="true" data-toggle="tooltip" title="Pets Allowed"></i><br> <small>Pets Allowed</small></div>';
+			var gym = '<div class="grid-item"><i class="fas fa-dumbbell fa-2x" aria-hidden="true" data-toggle="tooltip" title="Gym"></i><br> <small>Gym</small></div>';
+			var elevator = '<div class="grid-item"><i class="fas fa-arrows-alt-v fa-2x" aria-hidden="true" data-toggle="tooltip" title="Elevator"></i><br> <small>Elevator</small></div>';
+			var indoor_game = '<div class="grid-item"><i class="fas fa-chess fa-2x" aria-hidden="true" data-toggle="tooltip" title="Indoor game"></i><br> <small>Indoor game</small></div>';
+			
+			for (let i = 0; i < shouse["b_amenities_list"].length; i++) {
+				const amenities_list = shouse["b_amenities_list"][i];				
+				switch (amenities_list) {
+					case "cooling":
+						b_feture += ac;
+						break;			
+					case "garage":
+						b_feture += garage;
+						break;
+					case "swimming":
+						b_feture += swimming;
+						break;	
+					case "pet":
+						b_feture += pet;
+						break;
+					case "gym":
+						b_feture += gym;
+						break;
+					case "indoor_game":
+						b_feture += indoor_game;
+						break;				
+					case "elevator":
+						b_feture += elevator;
+						break
+					default:
+						break;
+				}
+				
+			}
+		//	console.log(b_feture);
+			$("#demo").html(inner_carosal);
+			$("#house_price").html("$"+shouse["user_price"]+"<small>/mo</small>");
+			$("#house_address").html(shouse["address"]);
+			$("#no_of_bed").html(shouse["bedroom"]);
+			$("#no_of_bathroom").html(shouse["bathroom"]);
+			$("#plot_size").html(shouse["plot"]+" <small> ft</small>");
+			$("#overview").html(shouse["overview"]);
+			$("#total_view").html(shouse["view"]);
+			$("#days_on_web").html(shouse["day_web"]);
+			$("#g_feture").html(g_feture);
+			$("#b_feture").html(b_feture);
+
 			$("#house_detail").css("animation", "anim 2s forwards");
 			$("#house_detail").css({ "display": "" });
 
@@ -587,6 +538,7 @@
 		function appointment_click(element) {
 			console.log("clicked");
 			console.log(element.id);
+			
 			$("#appointment_detail").css("animation", "anim 2s forwards");
 			$("#appointment_detail").css({ "display": "" });
 
@@ -595,65 +547,118 @@
 
 		}
 
-		function underline(element) {		
+		function underline(element) {
 			if (document.getElementById("display_houses").className == "nav-link under-line-active") {
 				document.getElementById("display_houses").className = "nav-link under-line";
 				//col-xs-12 col-lg-6 d-none d-lg-flex overflow-hidden
-				
-				
+
+
 			}
 			if (document.getElementById("display_map").className == "nav-link under-line-active") {
 				document.getElementById("display_map").className = "nav-link under-line";
 				//col-xs-12 col-lg-6
 			}
-			if(element.id == "display_houses")
-			{
+			if (element.id == "display_houses") {
 				console.log("houses");
 				document.getElementById("field").className = "col-xs-12 col-lg-6";
 				document.getElementById("map").className = "d-none";
 			}
-			else{
+			else {
 				console.log("fields");
-				document.getElementById("field").className ="d-none";
+				document.getElementById("field").className = "d-none";
 				document.getElementById("map").className = "col-xs-12 d-lg-flex overflow-hidden";
-				
+
 			}
-			if(element.id=="display_map")
-			{	
+			if (element.id == "display_map") {
 				console.log($(document).height());
-				var h =$(document).height();
-				
-				$(document).height(h-1);
+				var h = $(document).height();
+
+				$(document).height(h - 1);
 				console.log($(document).height());
 				//$("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > canvas").height = "";
 				map.resize();
-				map.resize();
-				map.resize();
 				close_appointment();
 				close_details();
-			
+
 			}
 			element.className = "nav-link under-line-active";
 
 
 		}
-		function underline_price(element)
-		{
+		function underline_price(element) {
+			sortby = "";
+			order = 1;//1 ASC
 			if (document.getElementById("price-high-low").className == "col-4 my-roboto under-line-active") {
 				document.getElementById("price-high-low").className = "col-4 my-roboto under-line";
 			}
 			if (document.getElementById("price-low-high").className == "col-4 my-roboto under-line-active") {
 				document.getElementById("price-low-high").className = "col-4 my-roboto under-line";
+
 			}
 			if (document.getElementById("newest-first").className == "col-4 my-roboto under-line-active") {
 				document.getElementById("newest-first").className = "col-4 my-roboto under-line";
 			}
 			element.className = "col-4 my-roboto under-line-active";
+			switch (element.id) {
+				case "price-high-low":
+					sortby = "user_price";
+					order = -1;
+					break;
+				case "price-low-high":
+					sortby = "user_price";
+					order = 1;
+					break;
+				case "newest-first":
+					sortby = "day_web";
+					order = 1;
+					break;
+				default:
+					break;
+			}
+
+			 console.log(sortby,order);
+			house_list.sort(sortbyandorder(sortby, order));
+			// console.log(house_list);
+			$("#list_of_house").html("");
+			for (let index = 0; index < house_list.length; index++) {
+				base_house = house_list[index];								
+				content =
+					'<div id="' + base_house["hid"] + '" onclick="house_click(this)" class="card col-xs-12 col-xl-6">'
+					+ '<img class="card-img-top" src="' + base_house["photos"][0] + '" alt="Card image cap">'
+					+ '<div class="card-body">'
+					+ '<div class="row">'
+					+ '<div class="col-5">'
+					+ '<h5 data-type="currency">$' + base_house["user_price"] + '</h5>'
+					+ '</div>'
+					+ '<div class="col-7">'
+					+ '<div class="row">'
+					+ '<div class="col-12">'
+					+ '<h6>' + base_house["bedroom"] + ' Bds|' + base_house["bathroom"] + ' Ba| ' + base_house["plot"] + 'ft</h6>'
+					+ '<small>' + base_house["address"] + '</small>'
+					+ '</div>'
+					+ '</div>'
+					+ '</div>'
+					+ '</div>'
+					+ '</div>'
+					+ '</div>';
+					$("#list_of_house").append(content);
+			}
+
 		}
-		$(window).resize(function() { 			
-			if($(window).width()>=992)
-			{
-				document.getElementById("field").className ="col-xs-12 col-lg-6";
+
+		function sortbyandorder(sortby, order) {
+			return function (a, b) {
+				if (a[sortby] > b[sortby]) {
+					return 1 * order;
+				} else if (a[sortby] < b[sortby]) {
+					return -1 * order;
+				}
+				return;
+			}
+		}
+		$(window).resize(function () {
+			if ($(window).width() >= 992) {
+				document.getElementById("field").className = "col-xs-12 col-lg-6";
 				document.getElementById("map").className = "col-xs-12 col-lg-6 d-none d-lg-flex overflow-hidden";
 				document.getElementById("display_houses").className = "nav-link under-line-active";
 				document.getElementById("display_map").className = "nav-link under-line";
@@ -669,7 +674,7 @@
 
 
 		}
-		
+
 	</script>
 </body>
 

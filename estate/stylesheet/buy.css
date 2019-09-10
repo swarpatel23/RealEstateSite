@@ -104,11 +104,77 @@
     border-bottom: 2px solid black;
     transition: all 0.5s ease-in-out;
   }
-@media screen and (min-width:1000px)
+  .my-shodows
+  {
+    box-shadow: 20px 0px 8px 0px rgba(0,0,0,0.63);
+  }
+  .my-shadow-body
+  {
+    box-shadow: 20px 1px 0px 0px rgba(0,0,0,0.63);
+  }
+  .my-close-btn-house-detail
+  {
+    position: sticky; 
+    top:15px;left:15px;z-index: 1;background-color:white;color: black;clip-path:circle(48% at 24px 24px);
+  }
+  .house-thumbnail
+  {
+    width:100vw; height:56vh;overflow: hidden;  transform: translateY(-68px);
+  }
+  .my-more
+  {
+    position: absolute; bottom:0px;right:16px;z-index: 1;
+  }
+  .pink-color
+  {
+    color:#ff3366 ;
+  }
+  .value {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    width: 40px;
+    text-align: center;
+    display: block;
+    
+    /* optional */
+    
+    font-weight: normal;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .price-range-both.value {
+    width: 100px;
+    margin: 0 0 0 -50px;
+    top: 26px;
+  }
+  
+  .price-range-both {
+    display: none; 
+  }
+  
+  .value i {
+    font-style: normal;
+  }
+@media screen and (max-width:300px)
 {
     .card-img-top
     {
-        max-height: 245px;
+        /*max-height: 245px;*/
+        max-height: 183px;
+        min-height: 300px;
+    }    
+}
+@media screen and (min-width:1200px)
+{
+    .card-img-top
+    {
+        /*max-height: 245px;*/
+        max-height: 183px;
+        min-height: 225px;
     }    
 }
 @Keyframes anim

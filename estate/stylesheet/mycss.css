@@ -165,227 +165,7 @@
 
 	animation: animation-3 2s forwards;
 }*/
-@Keyframes animation-4
-{
-	0%
-	{
-		top: -10vh;
-		opacity: 0;
-	}
-	100%
-	{
-		top: 0vh;
-		opacity: 1;
-	}
-}
-@Keyframes animation-3-my-text-date
-{
-	0%
-	{
-		top: 70vh;
-		opacity: 0;
-	}
-	50%
-	{
-		top: 70vh;
-		opacity: 1;
-	}
-	100%
-	{
-		top: 90vh;
-		opacity: 0;
-	}
-}
-@Keyframes animation-3
-{
-	0%
-	{
-		left: 0px;
-		height: 90vh;
-		width: 90vw;	
-		opacity: 1;
-	}
-	70%
-	{
-		left: 20vw;
-		height: 50vh;
-		width: 50vw;
-		opacity: 1;
-	}
-	100%
-	{
-		left: 20vw;
-		top: -10vh;
-		height: 50vh;
-		width: 50vw;	
-		opacity: 0;
-	}
-}
-@Keyframes animation-2-correct
-{
-	0%
-	{
-		top: 0;
-		opacity: 0;
-	}
-	100%
-	{
-		top: -5px;
-		opacity: 1;
-	}
-}
-@Keyframes animation-2-date 
-{
-	0%
-	{
-		top: 0;
-		height: 90vh;		
-		left: 10px;
-	}
-	50%
-	{
-		top: 20vh;
-	}
-	100%
-	{
-		top: -40px;
-		height: 90vh;
-		transform-origin: top left;
-		transform: rotate(180deg);
-	}
-}
-@Keyframes animation-1
-{
-	0%
-	{
-		height: 20vh;
-		top: 0;
-	}
-	25%
-	{
-		height: 90vh;
-		top: 0;
-	}
-	50%
-	{
-		height: 20vh;		
-		top: 0;
-	}
-	100%
-	{
-		height: 20vh;
-		top:-100vh;
-	}
-}
-@Keyframes animation-1-sm
-{
-	0%
-	{
-		top:-100vh;
-		left: 10vw;
-	}
-	25%
-	{
-		top: 0vh;
-		left: 10vw;
 
-	}
-	50%
-	{
-		top: 0vh;
-		height: 80vh;
-		left: 10vw;
-		width: 80vw;
-	}
-	100%
-	{
-		top: -100vh;
-		height: 20vh;	
-		left: 50vw;
-		width: 0vw;
-	}
-}
-@Keyframes animation-1-cursor
-{
-	0%
-	{		
-		width: 10vw;
-		height: 10vh;
-		
-		left: 110vw;
-	}
-	25%
-	{
-		top:  -67vh;
-		left: 45vw;
-		right: -20vw;
-		width: 10vw;
-		height: 10vh;	
-	}
-	40%
-	{
-		top: -67vh;
-		left: 50vw;
-		right: -20vw;
-		width: 1vw;
-		height: 1vh;
-	}
-	50%
-	{
-		
-		top: -67vh;
-		left: 50vw;
-		right: -20vw;
-		width: 10vw;
-		height: 10vh;
-	}
-	100%
-	{
-		
-		top: -100vh;
-		left: 50vw;
-		right: -20vw;
-		width: 10vw;
-		height: 10vh;
-	}
-}
-@Keyframes animation-1-cursor-sm
-{
-	 0%
-	{		
-		width: 10vw;
-		height: 10vh;
-		right: -50vw;
-	}
-	25%
-	{
-		width: 10vw;
-		height: 10vh;
-		top: 0vh;
-		right: 30vw;
-
-	}
-	50%
-	{
-		width: 5vw;
-		height: 5vh;
-		top: 0vh;
-		right: 30vw;
-	}
-	51%
-	{
-		top: 0vh;		
-		width: 10vw;
-		height: 10vh;
-	}
-	100%
-	{
-		top: -100vh;
-		right: -20vw;
-		width: 10vw;
-		height: 10vh;
-	}
-}
 @keyframes animation-init
 {
 	0%
@@ -411,14 +191,6 @@
 	{
 		font-size: 2.5em;
 	}
-	.animation1
-	{	
-		animation: animation-1 10s infinite;
-	}
-	.animation1-cursor
-	{
-		animation: animation-1-cursor 10s infinite;
-	}	
 	#my-text-date
 	{
 		left: 38vw;
@@ -429,7 +201,16 @@
 	}
 	#login-btn
 	{
+		transition: all 0.5s ease-in-out;
 		border: 2px solid black; 	
+	}
+	#login-btn:hover
+	{		
+		background: black;		
+	}
+	#login-btn:hover a
+	{		
+		color: white;
 	}
 	/*#my-text-hand
 	{
@@ -443,14 +224,6 @@
 	.my-head
 	{
 		font-size: 1.5em;
-	}
-	.animation1
-	{	
-		animation: animation-1-sm 10s infinite;
-	}
-	.animation1-cursor
-	{
-		animation: animation-1-cursor-sm 10s infinite;
 	}
 	#my-text-date
 	{
