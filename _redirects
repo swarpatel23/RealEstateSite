@@ -2,6 +2,6 @@
 /signin /signinsignup/signup.html
 /signup /signinsignup/signup.html?disp=signup
 /userprofile /userprofile/userprofile.html
-/housedetail /housedetail.html
+/housedetail /housedetail/housedetail.html
 /contactus /contactus/contactus.html
 /privacypolicy /privacypolicy/privacypolicy.html 
