@@ -6,10 +6,15 @@
     <link type="text/css" rel="stylesheet" href="signup_style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
 </head>
 
 <body class="sbody">
+    
+            
+    <div class="quote">
+        Chase your dreams<br> but always know the road<br> that will lead you home again.
+    </div>
     <div class="tab-content">
     <div class="signup">
         <form method="POST" action="">
@@ -19,8 +24,10 @@
             <input type="password" placeholder="Password" name="password" required>
             <input type="tel" placeholder="Contact Number" name="Contactnumber" required>
             <input type="text" placeholder="Address" name="Address" spellcheck="false" required>
+            <br>
             <input type="checkbox" value="check" required><span id="privacytext">I agree to the Privacy
                 Policy</span></input>
+            <br>
             <br>
             <input type="submit" value="Register" required>
 
@@ -42,6 +49,23 @@
     </div>
     </div>  
     <script>
+        let searchParams = new URLSearchParams(window.location.search);
+        if(searchParams.has('disp'))
+        {
+            let param = searchParams.get('disp')
+            if(param=="signin")
+            {
+                
+                $('.signup').hide();
+                $('.signin').show();
+            }
+            if(param=="signup")
+            {
+                $('.signin').hide();
+                $('.signup').show();
+            }
+
+        }
         $('.link a').on('click', function (e) {
 
             e.preventDefault();
@@ -72,7 +96,8 @@
 
         });
     </script>
-
+</div>
+</div>
 </body>
 
 </html>

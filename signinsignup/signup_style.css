@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 html{
   padding: 0%;
   margin: 0%;
@@ -11,6 +12,18 @@ body{
   
 }
 
+.quote{
+	color: #ffffff;
+	text-transform: capitalize;
+	font-family: 'Oswald', sans-serif;
+	font-size: 4em;
+	position: absolute;
+  	top: 50%;
+  	left: 30%;
+    transform: translateX(-50%) translateY(-50%);
+    text-shadow: 2px 2px #9a99a0;
+
+}
 .sbody{
   padding: 0%;
   margin: 0%;
@@ -18,7 +31,7 @@ body{
   height: 100vh;
   background-size: cover;
   display: table;
-  
+
 }
 
 .signup,.signin{
@@ -28,18 +41,22 @@ body{
   padding: .5em;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 75%;
   background: radial-gradient(circle,white,rgb(230, 221, 221));
   transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+
   
 }
 
+
+
 .h2header{
-  font-family: 'Viga', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: lighter;
   text-align: center;
   color:black;
-  font-size: 40px;
+  font-size: 2em;
 }
 
 input[type=text],
@@ -48,8 +65,8 @@ input[type=email],
 input[type=tel]{
 
   display: block;
-  width: 320px;
-  height: 40px;
+  width: 25vw;
+  height: 7vh;
   background: rgba(0, 0, 0, 0.3);
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -60,12 +77,15 @@ input[type=tel]{
   padding-left: 10px;
   border-radius: 5px;
   color: white;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+
+
 }
 
 input[type=submit]{
   cursor: pointer; 
-  width: 332px;
-  height: 40px;
+  width: 26vw;
+  height: 7vh;
   font-size: 18px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background: #000000;
@@ -73,6 +93,34 @@ input[type=submit]{
   color: #fff;
   border: 0px;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 480px)
+{
+	.signup,.signin{
+		position: absolute;
+  		top: 50%;
+  		left: 50%;
+    	transform: translateX(-50%) translateY(-50%);
+
+  }
+  
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=tel]{
+    width:70vw;
+}
+
+  input[type=submit]{
+    margin-left: 50%;
+    transform: translate(-50%,0%)
+  }
+
+
+	.quote{
+		display: none;
+	}
 }
 .link,.copyright{
 
@@ -87,4 +135,5 @@ input[type=submit]{
 }
 #privacytext{
   font-family: "Viga", sans-serif;
+  padding-left: 10px;  
 }
