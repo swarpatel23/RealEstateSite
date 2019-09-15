@@ -18,37 +18,38 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
-	<script src='scripts/myscript.js'></script>
+	
 	<link rel="stylesheet" href="./node_modules/sal.js/dist/sal.css">
+	<script src="scripts/global.js"></script>
 </head>
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-xl navbar-light bg-trasparen my-navbar pt-md-1 pr-md-3 pb-md-1 pl-md-5">
-			<a class="navbar-brand" href="#">Logo</a>
+		<nav class="navbar navbar-expand-xl navbar-light bg-trasparen my-navbar pr-md-3">
+			<a class="navbar-brand" href="#"><img src="image/logo-final.svg" style="width:180px;" id="my_logo"/></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
 				aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbar">
-				<ul class="navbar-nav mr-auto ml-md-5">
-					<li class="nav-item active pr-md-2 pl-xl-5 ">
+				<ul class="navbar-nav mr-auto ml-xs-0 ml-xl-5">
+					<li class="nav-item  active pr-md-2 pl-xs-0  ">
 						<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item pr-md-2 pl-xl-2">
-						<a class="nav-link" href="buy.html">Buy</a>
+					<li class="nav-item  pr-md-2 pl-xs-0 ">
+						<a class="nav-link" href="buy.html">Buy						
+						</a>
 					</li>
-					<li class="nav-item pr-md-2 pl-xl-2">
+					<li class="nav-item pr-md-2 pl-xs-0 ">
 						<a class="nav-link" href="#">Rent</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto pr-md-4">
-					<li class="nav-item my-maven-pro pr-md-5">
-						<a class="nav-link" href="../signinsignup/signup.html?disp=signup">Sign up</a>
+					<li class="nav-item my-maven-pro pl-xs-0  pr-md-5 ml-xs-0">
+						<a class="nav-link" href="#">Sign Up</a>
 					</li>
-					<li class="nav-item my-maven-pro pl-md-4 pr-md-4" id="login-btn">
-						<a class="nav-link" href="../signinsignup/signup.html?disp=signin">Login</a>
+					<li class="nav-item my-maven-pro  pl-xs-0 pl-xl-3 pr-md-4 ml-xs-0" id="login-btn">
+						<a class="nav-link" href="#">Login</a>
 					</li>
 				</ul>
 			</div>
@@ -195,7 +196,7 @@
 		</div>
 		<br><br>
 		<div class="container-flex">
-			<div class="row mt-5 pt-5">
+			<div class="row mt-md-5 pt-md-5 mb-5">
 				<div class="col-12 text-center">
 					<h1 
 					data-sal="zoom-in"
@@ -204,17 +205,38 @@
 					class="display-2">How It Works?</h1>
 				</div>
 			</div>
-			<div class="row mt-5 pt-2 mb-5">
-				<div class="col-md-12 col-lg-6 text-center">
-					<img src="image/hand.svg" style="height:75vh;width:50vw;transform: translateY(-13vh)" />
+			<div class="row pt-2 mb-5">
+				<div class="col-md-12 col-lg-6 mb-5 pb-3 text-center">
+					<img 
+					data-sal="slide-down"
+					data-sal-delay="300"
+					data-sal-easing="ease-out-bounce"
+					src="image/handsake.svg"  class="img-fluid" /><!--style="height:75vh;width:50vw;transform: translateY(-13vh)"-->
 				</div>	
-				<div class="col-md-12 col-lg-6 my-maven-pro">
+				<div class="col-md-12 col-lg-6 my-maven-pro pt-xs-5 pt-sm-0">
 						<ol style="list-style: inside; font-size: 1.4rem;">
-                            <li>Select any two date for your appointment.</li><br>
-                            <li>Write your purchase or rent price.</li><br>
-                            <li>Owner of the house select one of date.</li><br>
-                            <li>We will let you know about that dates via mail.</li><br>
-                            <li>If you don't get mail means owner is not free on both of dates.</li>
+							<li
+							data-sal="slide-up"
+							data-sal-delay="300"
+							data-sal-easing="ease-out-bounce">Select any two date for your appointment.</li><br>
+							<li
+							data-sal="slide-up"
+							data-sal-delay="300"
+							data-sal-easing="ease-out-bounce">Write your purchase or rent price.</li><br>
+							<li
+							data-sal="slide-up"
+							data-sal-delay="300"
+							data-sal-easing="ease-out-bounce">Owner of the house select one of date.</li><br>
+							<li
+							data-sal="slide-up"
+							data-sal-delay="300"
+							data-sal-easing="ease-out-bounce"
+							>We will let you know about that dates via mail.</li><br>
+							<li
+							data-sal="slide-up"
+							data-sal-delay="300"
+							data-sal-easing="ease-out-bounce"
+							>If you don't get mail means owner is not free on both of dates.</li>
                     </ol>	
 					</div>								
 					
@@ -243,7 +265,7 @@
 					data-sal="slide-down"
 					data-sal-delay="300"
 					data-sal-easing="ease-out-bounce"
-					class="col-3 pt-5">
+					class="col-3 pt-5 pl-4">
 							<img src="image/Icon- Gps.svg"  style="width:60px; height: 60px;">
 					</div>
 					<div 
@@ -259,7 +281,7 @@
 						data-sal="slide-up"
 						data-sal-delay="300"
 						data-sal-easing="ease-out-bounce"
-						class="col-3 pt-5">
+						class="col-3 pt-5 pl-4">
 								<img src="image/Icon- phone.svg"  style="width:60px; height: 60px;">
 						</div>
 						<div 
@@ -275,13 +297,39 @@
 			data-sal="slide-right"
 			data-sal-delay="300"
 			data-sal-easing="ease-out-bounce"
-			class="col-xs-12 col-md-3 pt-5">
+			class="col-xs-12 col-md-3 pt-5 pl-5">
 				<h1>About Company</h1>
 				<p style="color:#939191; font-size: 1em;" class="my-maven-pro">Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.</p>
 			
 			</div>
 		</div>
 	</footer>
+	<script>
+		
+
+
+$(".my-hero-jumbotron").css({ height: $(window).height() + "px" });
+
+$(window).on("resize", function() {
+	// if($(window).width()<=335)
+	// {
+	// 	$("#my_logo").attr("src","image/small_logo.svg");
+	// 	$("#my_logo").width(30);
+	// }	
+	// else if($(window).width()<=990)
+	// {
+	// 	$("#my_logo").attr("src","image/small_logo.svg");
+	// 	$("#my_logo").width(80);
+	// }	
+	// else
+	// {
+	// 	$("#my_logo").attr("src","image/logo-final.svg");
+	// 	$("#my_logo").width(180);
+	// }
+	
+  $(".my-hero-jumbotron").css({ height: $(window).resize(function() {  + "px" })});
+});
+	</script>
 	<script src="./node_modules/sal.js/dist/sal.js"></script>
 	<script>
 		// sal({

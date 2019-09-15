@@ -1,0 +1,15 @@
+.arrow
+{
+    width: 30px; 
+    position: sticky;   
+    top: 49%;  
+    z-index: 1;
+}
+.left
+{
+    transform:translateX(-65px) rotate(90deg);
+}
+.right
+{
+    transform:translateX(-65px) rotate(-90deg);
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Get coordinates of the mouse pointer</title>
+    <!-- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>    
+    <link href="https://fonts.googleapis.com/css?family=Prata|Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/sal.js/dist/sal.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="stylesheet/buy.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="stylesheet/mycss.css">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="scripts/admin.js"></script>
+
+    
+    <script>
+        function logo_resize() {
+
+
+            if ($(window).width() <= 335) {
+                $("#my_logo").attr("src", "image/small_logo.svg");
+                $("#my_logo").width(30);
+            }
+            else if ($(window).width() <= 990) {
+                $("#my_logo").attr("src", "image/small_logo.svg");
+                $("#my_logo").width(80);
+            }
+            else {
+                $("#my_logo").attr("src", "image/logo-final.svg");
+                $("#my_logo").width(180);
+            }
+        }
+        logo_resize();	
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+            $(window).on("resize", logo_resize());</script>
+</head>
+<body style="overflow-y: hidden;">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-light bg-trasparen my-navbar pr-md-3">
+            <a class="navbar-brand" href="#"><img src="image/logo-final.svg" style="width:180px;" id="my_logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto ml-xs-0 ml-xl-5">
+                    <li class="nav-item  active pr-md-2 pl-xs-0  ">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item  pr-md-2 pl-xs-0 ">
+                        <a class="nav-link" href="buy.html">Buy
+                        </a>
+                    </li>
+                    <li class="nav-item pr-md-2 pl-xs-0 ">
+                        <a class="nav-link" href="#">Rent</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto pr-md-4">
+                    <li class="nav-item my-maven-pro pl-xs-0  pr-md-5 ml-xs-0">
+                        <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+                    <li class="nav-item my-maven-pro  pl-xs-0 pl-xl-3 pr-md-4 ml-xs-0" id="login-btn">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<div class="container-fluid  overflow-hidden">
+    <div class="row">
+        <div class="col-2" style="height: 100vh;overflow: auto;" id="menu">
+            <div class="container">
+                <ul>
+                    <li>CONTENT</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>CONTENT</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>CONTENT</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>CONTENT</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>CONTENT</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>CONTENT</li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-10 bg-info " style="height: 100vh;overflow: auto;" id="content">
+            <!-- <img src="image/down-arrow.svg" style="position: sticky;   width: 30px; top: 49%;    transform:translateX(-65px) rotate(90deg);                
+            z-index: 1;"/>   -->
+            <div class="container-flex mt-4 mt-md-5 ml-xs-0 ml-md-5 mr-3 pr-3 pl-3" style="position: absolute;">
+                <div class="card-columns ml-2" id="list_of_house">
+                   
+                </div>
+            </div>
+            <img src="image/curve.svg" style="
+            position: sticky;   
+            top: 15%;  
+            transform: translateX(-31px);
+            z-index: 1;" id="toggle-my-menu"/>  
+        </div>        
+    </div>
+</div>
+</body>
+</html>
