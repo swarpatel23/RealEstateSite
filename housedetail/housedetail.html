@@ -3,6 +3,7 @@
 <head>
     <title>House Details</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="intl-tel-input-16.0.0/build/css/intlTelInput.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
@@ -11,7 +12,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    
 
+    <link rel="stylesheet" href="build/css/demo.css">
     <style type="text/css">
         .main-section{
             margin:0 auto;
@@ -35,7 +38,7 @@
         <div id='map' style='max-width: 1100px; height: 300px;'></div>
         <script>
             var lat, long;
-            mapboxgl.accessToken = '';
+		mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhcjIzIiwiYSI6ImNqejlhbmt1YzAxdXAzbm1yZzMzbHFmNHMifQ.xPyQpPklaSXYm5pFCO85Hg';
             var map;
             map = new mapboxgl.Map({
                 container: 'map',
@@ -132,8 +135,8 @@
 
     
     
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
@@ -150,6 +153,7 @@
 
         </div>
     </nav>
+</div>
     <script>
         
         
@@ -439,7 +443,33 @@
             </div>
         </div>
     </form>
-
+    <script src="intl-tel-input-16.0.0/build/js/intlTelInput.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+          // allowDropdown: false,
+          // autoHideDialCode: false,
+          // autoPlaceholder: "off",
+          dropdownContainer: document.body,
+          // excludeCountries: ["us"],
+          // formatOnDisplay: false,
+          // geoIpLookup: function(callback) {
+          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          //     var countryCode = (resp && resp.country) ? resp.country : "";
+          //     callback(countryCode);
+          //   });
+          // },
+          // hiddenInput: "full_number",
+          // initialCountry: "auto",
+          // localizedCountries: { 'de': 'Deutschland' },
+          // nationalMode: false,
+          // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+          // placeholderNumberType: "MOBILE",
+          // preferredCountries: ['cn', 'jp'],
+          // separateDialCode: true,
+          utilsScript: "build/js/utils.js",
+        });
+      </script>
     <script>
         $(document).ready(function () {
             $("#Radios1").click(function () {
@@ -458,7 +488,17 @@
                 $("#hi3").show(1000);
                 $("#hi4").show(1000);
             });
+
+            $(':input[type="number"]').change(function () {
+                console.log("123");
+                 if($(this).val()<0)
+                 {
+                     $(this).val(0);
+                 }
+                });
         });
+
+        
     </script>
 
 </body>
