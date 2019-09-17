@@ -455,19 +455,21 @@
 			$("#appointment_detail").css({ "display": "none" });
 			$("#house_detail").css({ "display": "" });
 		}
+		var shouse;
 		function house_click(element) {			
 			console.log(element.id);
 			var hid = element.id;
-			var shouse = house_list.find(function(house){			
+			shouse = house_list.find(function(house){			
 				return house["hid"].toString()==hid.toString();
 			});
 			console.log(shouse);
 			map.flyTo({
 				center: [
-					shouse["lat"],
-					shouse["long"]
-				]
-			});
+					shouse["long"],
+					shouse["lat"]
+				],
+				zoom:13,
+			},setmarker());
 			$("#main-house-thumbnail").attr("src",shouse["photos"][0]);
 
 			var inner_carosal_active = '<div class="carousel-item active">'
@@ -551,6 +553,51 @@
 
 
 		}
+
+		map.on("click", setmarker);
+                function setmarker() {
+                    //console.log("hi");
+                    var mapLayer = map.getLayer('markers');
+
+                    if (typeof mapLayer !== 'undefined') {
+                        // Remove map layer & source.
+                        map.removeLayer('markers').removeSource('markers');
+
+					}
+					console.log(shouse["long"]);
+                    /* Image: An image is loaded and added to the map. */
+                    map.loadImage("marker.png", function (error, image) {
+                        if (error) throw error;
+                        map.addImage("custom-marker", image);
+                        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+                        map.addLayer({
+                            id: "markers",
+                            type: "symbol",
+                            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                            source: {
+                                type: "geojson",
+                                data: {
+                                    type: 'FeatureCollection',
+                                    features: [
+                                        {
+                                            type: 'Feature',
+                                            properties: {},
+                                            geometry: {
+                                                type: "Point",
+                                                coordinates: [shouse["long"],shouse["lat"]]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            layout: {
+                                "icon-image": "custom-marker",
+                            }
+                        });
+
+                    });
+
+                }
 		function appointment_click(element) {
 			console.log("clicked");
 			console.log(element.id);
